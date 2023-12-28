@@ -1,4 +1,4 @@
-# Grovceries
+# Groceries
 
 ## Getting Started
 
