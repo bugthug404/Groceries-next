@@ -15,7 +15,6 @@ export function AuthProvider(props: { children: React.ReactNode }) {
   const [user, setUser] = useAtom(userDataAtom);
   const router = useRouter();
   const publicpath = [
-    "/",
     "/login",
     "/signup",
     "/forgot-password",
