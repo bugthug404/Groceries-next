@@ -1,6 +1,6 @@
 import { useAuth } from "@/utils/auth-hook";
 import {
-  loaderOpenState,
+  globalLoaderAtom,
   userAuthTokenAtom,
   userDataAtom,
 } from "@/utils/global-atom";
@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
 export function AuthProvider(props: { children: React.ReactNode }) {
-  const setLoaderOpen = useSetAtom(loaderOpenState);
+  const setLoaderOpen = useSetAtom(globalLoaderAtom);
   const auth = useAuth();
   const [token, setToken] = useAtom(userAuthTokenAtom);
   const [user, setUser] = useAtom(userDataAtom);

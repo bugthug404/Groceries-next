@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useAtomValue, useSetAtom } from "jotai";
-import { loaderOpenState, userAuthTokenAtom } from "./global-atom";
+import { globalLoaderAtom, userAuthTokenAtom } from "./global-atom";
 import { UserModel } from "./user-model";
 
 export function useGroceryItemHook() {
-  const setLoader = useSetAtom(loaderOpenState);
+  const setLoader = useSetAtom(globalLoaderAtom);
   const userToken = useAtomValue(userAuthTokenAtom);
 
   async function deleteItem(userId: string) {

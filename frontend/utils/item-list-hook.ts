@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useAtomValue, useSetAtom } from "jotai";
-import { loaderOpenState, userAuthTokenAtom } from "./global-atom";
+import { globalLoaderAtom, userAuthTokenAtom } from "./global-atom";
 import { useQuery } from "react-query";
 import { GroceryItemModel } from "./grocery-item-model";
 
 export function useGroceryItemList() {
   const token = useAtomValue(userAuthTokenAtom);
-  const setLoader = useSetAtom(loaderOpenState);
+  const setLoader = useSetAtom(globalLoaderAtom);
 
   const { data, refetch } = useQuery(
     "groceryItemList",

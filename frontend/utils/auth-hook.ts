@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { useAtom, useSetAtom } from "jotai";
-import { userAuthTokenAtom, userDataAtom } from "./global-atom";
+import {
+  globalLoaderAtom,
+  userAuthTokenAtom,
+  userDataAtom,
+} from "./global-atom";
 import { useRouter } from "next/router";
 
 export function useAuth() {
@@ -9,8 +13,10 @@ export function useAuth() {
   const setUserToken = useSetAtom(userAuthTokenAtom);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const router = useRouter();
+  const setLoader = useSetAtom(globalLoaderAtom);
 
   function login(data: any) {
+    setLoader(true);
     axios
       .post(`${process.env.NEXT_PUBLIC_API}/login`, data, {
         headers: {
@@ -33,17 +39,20 @@ export function useAuth() {
         router.push("/home");
       })
       .catch((error: any) => {
-        alert("Login Failed");
-        error.message &&
-          alert(
-            `Api Response : ${
-              JSON.stringify(error?.response ?? error) ?? "no data"
-            }`
-          );
+        return alert(
+          `Api Response : ${
+            JSON.stringify(error?.response?.message ?? "Login Failed") ??
+            "no data"
+          }`
+        );
+      })
+      .finally(() => {
+        setLoader(false);
       });
   }
 
   function signup(data: any, successCallBack?: Function) {
+    setLoader(true);
     axios
       .post(`${process.env.NEXT_PUBLIC_API}/signup`, data, {
         headers: {
@@ -66,11 +75,14 @@ export function useAuth() {
               error?.response?.data?.error ?? "Error Creating User"
             )
           );
+      })
+      .finally(() => {
+        setLoader(false);
       });
   }
 
-  function testApiCall() {
-    // setLoader(true);
+  async function testApiCall() {
+    setLoader(true);
     axios
       .get(`${process.env.NEXT_PUBLIC_API}`, {
         headers: {
@@ -84,6 +96,9 @@ export function useAuth() {
       })
       .catch((err) => {
         err.message && alert(`Api Response : ${err.message ?? "no data"}`);
+      })
+      .finally(() => {
+        setLoader(false);
       });
   }
 

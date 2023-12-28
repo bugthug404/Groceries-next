@@ -24,7 +24,7 @@ connectToMongoDB();
 
 app.get("/", (req, res) =>
   res.status(200).send({
-    data: `server says : get request on time : ${new Date().getTime()}`,
+    data: `server says : get request on time : ${new Date().toLocaleTimeString()}`,
   })
 );
 
