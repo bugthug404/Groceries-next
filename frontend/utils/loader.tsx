@@ -10,8 +10,9 @@ export default function Loader() {
         <div
           style={{
             backgroundColor: "rgba(0,0,0,0.8)",
+            zIndex: 9999,
           }}
-          className=" fixed top-0 left-0 z-50 h-screen w-full gap-8 flex flex-col items-center justify-center"
+          className=" fixed top-0 left-0  h-screen w-full gap-8 flex flex-col items-center justify-center"
         >
           <div className="loading"></div>
           <button

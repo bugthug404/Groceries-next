@@ -7,7 +7,6 @@ export default function Index() {
   const auth = useAuth();
   return (
     <>
-      {/* <Loader /> */}
       <div className="h-screen w-full flex justify-center items-center">
         <div className="p-4 text-center">
           <div className="mb-4 text-2xl font-semibold">
