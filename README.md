@@ -74,4 +74,5 @@ Now, you should be able to access the application at `http://localhost:3000` (or
 Test online demo [here](https://groceries-next.vercel.app/).
 
 _Note: backend is deployed in render.com & may take some time in first api call.
-run test api call to check if backend is working or not_
+run test api call to check if backend is working or not.
+default form data for login & signup can be edited_
