@@ -31,11 +31,9 @@ export function useAuth() {
           setUserToken(response?.data?.token);
           setUser(response?.data?.user);
           localStorage.setItem("userData", JSON.stringify(response?.data));
-        } else {
-          alert("missing data");
         }
 
-        alert("Login Successfull");
+        // alert("Login Successfull");
         router.push("/home");
       })
       .catch((error: any) => {
@@ -65,7 +63,7 @@ export function useAuth() {
       .then((response) => {
         console.log("response == ", response);
         successCallBack?.();
-        alert("Signup Success!");
+        // alert("Signup Success!");
       })
       .catch((error) => {
         console.log(error);
