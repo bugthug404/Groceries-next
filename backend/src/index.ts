@@ -8,7 +8,7 @@ import authRouter from "./controllers/auth.controller";
 import groceriesRouter from "./controllers/groceryitem.controller";
 
 dotenv.config();
-mongoose.set("strictQuery", false);
+// mongoose.set("strictQuery", false);
 const app = express();
 const port = process.env.PORT || 3009;
 app.use(
@@ -20,7 +20,7 @@ app.use(
 // add json middleware
 app.use(express.json());
 
-connectToMongoDB();
+// connectToMongoDB();
 
 app.get("/", (req, res) =>
   res.status(200).send({

@@ -22,7 +22,7 @@ export default function ItemCard({
       <div className={`flex gap-4 `}>
         <Button
           onClick={() => {
-            setEditId(item._id);
+            setEditId(item.id);
           }}
         >
           Edit
@@ -30,7 +30,7 @@ export default function ItemCard({
         <Button
           onClick={() => {
             if (window.confirm("Are you sure you want to delete this item?")) {
-              itemHook.deleteItem(item._id!.toString());
+              itemHook.deleteItem(item.id!.toString());
             }
           }}
         >

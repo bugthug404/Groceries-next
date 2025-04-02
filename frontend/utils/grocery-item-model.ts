@@ -1,5 +1,5 @@
 export interface GroceryItemModel {
-  _id?: string;
+  id?: string;
   name: string;
   category: string;
   price: string;
